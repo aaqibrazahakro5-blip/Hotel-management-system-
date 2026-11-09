@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrandStay Hotel | Booking System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">Grand<span>Stay.</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#rooms">Rooms</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="nav-btn" onclick="showBookings()">
+        My Bookings
+    </button>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="tagline">WELCOME TO GRANDSTAY</p>
+        <h1>Experience Luxury<br> & Comfort</h1>
+        <p>Enjoy unforgettable moments with our premium hotel services.</p>
+        <a href="#rooms" class="main-btn">Explore Rooms</a>
+    </div>
+</section>
+
+<!-- SEARCH SECTION -->
+<section class="search-section">
+    <h2>Find Your Perfect Stay</h2>
+
+    <div class="search-box">
+        <div>
+            <label>Check In</label>
+            <input type="date" id="checkin">
+        </div>
+
+        <div>
+            <label>Check Out</label>
+            <input type="date" id="checkout">
+        </div>
+
+        <div>
+            <label>Guests</label>
+            <select id="guests">
+                <option value="1">1 Guest</option>
+                <option value="2" selected>2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5 Guests</option>
+            </select>
+        </div>
+
+        <button onclick="searchRooms()">Search Rooms</button>
+    </div>
+    <p id="searchMessage"></p>
+</section>
+
+<!-- ROOMS SECTION -->
+<section class="rooms-section" id="rooms">
+    <div class="section-heading">
+        <p>OUR ACCOMMODATION</p>
+        <h2>Discover Our Rooms</h2>
+        <span>Choose the perfect room for your stay.</span>
+    </div>
+
+    <div class="filter-buttons">
+        <button class="filter active" onclick="filterRooms('All', this)">All Rooms</button>
+        <button class="filter" onclick="filterRooms('Standard', this)">Standard</button>
+        <button class="filter" onclick="filterRooms('Deluxe', this)">Deluxe</button>
+        <button class="filter" onclick="filterRooms('Suite', this)">Suite</button>
+        <button class="filter" onclick="filterRooms('Family', this)">Family</button>
+    </div>
+
+    <div class="rooms-container" id="roomsContainer"></div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="about" id="about">
+    <div>
+        <p class="tagline">ABOUT OUR HOTEL</p>
+        <h2>A Better Way to Experience Hospitality</h2>
+        <p>
+            GrandStay provides comfortable rooms, friendly service
+            and memorable experiences. Book your favorite room
+            easily through our online booking system.
+        </p>
+    </div>
+    <div class="about-image"></div>
+</section>
+
+<!-- BOOKING MODAL -->
+<div class="modal" id="bookingModal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeBooking()">×</button>
+        <h2>Complete Your Booking</h2>
+        <p id="selectedRoom"></p>
+
+        <form id="bookingForm">
+            <input type="text" id="customerName"
+                   placeholder="Full Name" required>
+
+            <input type="email" id="customerEmail"
+                   placeholder="Email Address" required>
+
+            <input type="tel" id="customerPhone"
+                   placeholder="Phone Number" required>
+
+            <textarea id="customerAddress"
+                      placeholder="Your Address" required></textarea>
+
+            <div class="booking-info" id="bookingInfo"></div>
+
+            <button type="submit" class="submit-btn">
+                Confirm Booking
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- MY BOOKINGS MODAL -->
+<div class="modal" id="myBookingsModal">
+    <div class="modal-content wide-modal">
+        <button class="close-btn" onclick="hideBookings()">×</button>
+        <h2>My Bookings</h2>
+        <div id="bookingsList"></div>
+    </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <h2>Contact GrandStay</h2>
+    <p>Email: info@grandstay.com</p>
+    <p>Phone: +92 300 1234567</p>
+    <p>Location: Islamabad, Pakistan</p>
+</section>
+
+<footer>
+    <p>© 2026 GrandStay Hotel. All Rights Reserved.</p>
+    <p>Designed with HTML, CSS & JavaScript</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
